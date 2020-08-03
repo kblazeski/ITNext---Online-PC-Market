@@ -52,13 +52,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="float-right">
-                            <div class="make_appo">  @Html.ActionLink("Регистрирај се", "Register", "Account", new { area = "" }, new { @class = "btn white_btn" }) </div>
-                           
-                        </div>
-                        <div class="float-right">
-                            <div class="make_appo"> @Html.ActionLink("Логирај се", "Login", "Account", new { area = "" }, new { @class = "btn white_btn" }) </div>
-                        </div>
+                        @Html.Partial("_LoginPartial")
                     </div>
                 </div>
             </div>
