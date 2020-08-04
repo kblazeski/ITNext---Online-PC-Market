@@ -26,6 +26,8 @@ namespace ITNext___Online_PC_Market.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Item> items { get; set; }
+        public DbSet<Tip> categories { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

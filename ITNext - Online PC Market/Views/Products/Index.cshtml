@@ -1,0 +1,26 @@
+﻿@model IEnumerable<ITNext___Online_PC_Market.Models.Item>
+
+@{
+    ViewBag.Title = "All products";
+}
+<div class="row">
+    @foreach (ITNext___Online_PC_Market.Models.Item item in Model)
+    {
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
+            <div class="product_list">
+                <div class="product_img"> <img class="img-responsive" src="@item.ImgURL" alt=""> </div>
+                <div class="product_detail_btm">
+                    <div class="center">
+                        <h4><a href="#">@item.Name</a></h4>
+                    </div>
+                    <div class="starratin">
+                        <div class="center"> </div>
+                    </div>
+                    <div class="product_price">
+                        <p><span class="new_price">@item.Price ден. </span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

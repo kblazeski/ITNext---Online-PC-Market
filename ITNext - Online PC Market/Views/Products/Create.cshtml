@@ -1,0 +1,36 @@
+﻿@model ITNext___Online_PC_Market.ViewModels.ItemsTipViewModel
+
+@{
+    ViewBag.Title = "Креирај нов продукт";
+}
+
+<h2>Креирај нов продукт</h2>
+
+@using (Html.BeginForm("Create", "Products"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.item.Name)
+        @Html.TextBoxFor(m => m.item.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.item.Price)
+        @Html.TextBoxFor(m => m.item.Price, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.item.Stock)
+        @Html.TextBoxFor(m => m.item.Stock, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.item.ImgURL)
+        @Html.TextBoxFor(m => m.item.ImgURL, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.item.Tip)
+        @Html.DropDownListFor(m => m.item.TipId, new SelectList(Model.categories, "Id", "Name"), new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.item.Desc)
+        @Html.TextAreaFor(m => m.item.Desc, new { @class = "form-control" })
+    </div>
+    <button class="btn btn-primary" type="submit">Додади продукт</button>
+}
