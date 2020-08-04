@@ -1,15 +1,16 @@
 ﻿@using Microsoft.AspNet.Identity
+@using System.Security.Claims;
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
         @Html.AntiForgeryToken()
         <div class="float-right">
-            <div class="make_appo"><a class="btn white_btn" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></div>
+            <div class="make_appo"><a class="btn white_btn" href="javascript:document.getElementById('logoutForm').submit()">Одјави се</a></div>
         </div>
         <div class="float-right">
             <div class="make_appo">
-                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "btn white_btn" })
+                @Html.ActionLink("Здраво " + ((ClaimsIdentity)User.Identity).FindFirst("Firstname").Value + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "btn white_btn" })
             </div>
         </div>
     }

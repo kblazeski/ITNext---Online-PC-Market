@@ -55,29 +55,35 @@ namespace ITNext___Online_PC_Market.Models
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Лозинка")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "Запомни ме?")]
         public bool RememberMe { get; set; }
     }
 
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "Име")]
+        public string Firstname { get; set; }
+        [Required]
+        [Display(Name = "Презиме")]
+        public string Surname { get; set; }
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "{0}та мора да биде долга барем {2} карактери.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Лозинка")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "Потврди лозинка")]
+        [Compare("Password", ErrorMessage = "Лозинките не се совпаѓаат.")]
         public string ConfirmPassword { get; set; }
     }
 
@@ -89,14 +95,14 @@ namespace ITNext___Online_PC_Market.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "{0}та мора да биде долга барем {2} карактери.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Лозинка")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "Потврди Лозинка")]
+        [Compare("Password", ErrorMessage = "Лозинките не се совпаѓаат.")]
         public string ConfirmPassword { get; set; }
 
         public string Code { get; set; }
