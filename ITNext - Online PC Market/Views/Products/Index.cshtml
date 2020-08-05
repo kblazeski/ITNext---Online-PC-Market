@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ITNext___Online_PC_Market.Models.Item>
 
 @{
-    ViewBag.Title = "All products";
+    ViewBag.Title = "Продукти";
 }
 <div class="row">
     @foreach (ITNext___Online_PC_Market.Models.Item item in Model)
@@ -11,7 +11,7 @@
                 <div class="product_img"> <img class="img-responsive" src="@item.ImgURL" alt=""> </div>
                 <div class="product_detail_btm">
                     <div class="center">
-                        <h4><a href="#">@item.Name</a></h4>
+                        <h4>@Html.ActionLink(item.Name,"Details","Products",new { id = item.Id },null)</h4>
                     </div>
                     <div class="starratin">
                         <div class="center"> </div>

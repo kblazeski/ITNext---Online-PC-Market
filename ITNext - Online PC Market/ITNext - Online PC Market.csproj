@@ -202,6 +202,14 @@
     <Compile Include="Migrations\202008041525043_AddedImgURL.Designer.cs">
       <DependentUpon>202008041525043_AddedImgURL.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008051537396_ChangedNameToMultilineText.cs" />
+    <Compile Include="Migrations\202008051537396_ChangedNameToMultilineText.Designer.cs">
+      <DependentUpon>202008051537396_ChangedNameToMultilineText.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008051611222_AddedDisplayNameToTip.cs" />
+    <Compile Include="Migrations\202008051611222_AddedDisplayNameToTip.Designer.cs">
+      <DependentUpon>202008051611222_AddedDisplayNameToTip.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -234,6 +242,7 @@
     <Content Include="Content\ItNextTheme\colors_landing_page.css" />
     <Content Include="Content\ItNextTheme\custom.css" />
     <Content Include="Content\ItNextTheme\dark_layout.css" />
+    <Content Include="Content\ItNextTheme\hizoom.min.css" />
     <Content Include="Content\ItNextTheme\hizoom.css" />
     <Content Include="Content\ItNextTheme\layers.css" />
     <Content Include="Content\ItNextTheme\navigation.css" />
@@ -339,6 +348,7 @@
     <Content Include="Scripts\js\extensions\revolution.extension.parallax.min.js" />
     <Content Include="Scripts\js\extensions\revolution.extension.slideanims.min.js" />
     <Content Include="Scripts\js\extensions\revolution.extension.video.min.js" />
+    <Content Include="Scripts\js\hizoom.min.js" />
     <Content Include="Scripts\js\hizoom.js" />
     <Content Include="Scripts\js\jquery.min.js" />
     <Content Include="Scripts\js\jquery.themepunch.revolution.min.js" />
@@ -383,6 +393,9 @@
     <Content Include="Views\Shared\_LayoutTheme.cshtml" />
     <Content Include="Views\Products\Create.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Products\AdminDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -421,6 +434,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008041525043_AddedImgURL.resx">
       <DependentUpon>202008041525043_AddedImgURL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008051537396_ChangedNameToMultilineText.resx">
+      <DependentUpon>202008051537396_ChangedNameToMultilineText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008051611222_AddedDisplayNameToTip.resx">
+      <DependentUpon>202008051611222_AddedDisplayNameToTip.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

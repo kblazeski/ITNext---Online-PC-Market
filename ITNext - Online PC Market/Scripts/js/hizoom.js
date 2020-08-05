@@ -1,7 +1,7 @@
-(function($) {
+(function ($) {
     // 主逻辑封装在函数里
     // 主要利用了函数的局部作用域解决同一页面调用多次插件造成的作用域混乱的问题
-    var start = function(el,options) {
+    var start = function (el, options) {
         var magnifier = null; //当前放大镜DOM
         var bigImageDOM = null; // 当前大图容器DOM
         var leftDistance = undefined; // 鼠标距离容器左边的距离
@@ -15,7 +15,7 @@
         };
 
         // 放大镜没有触碰到容器边距 ? true : false
-        var notTouchBorder = function() {
+        var notTouchBorder = function () {
             if (
                 leftDistance >= config.width / 4 &&
                 leftDistance <= 3 * config.width / 4 &&
@@ -27,9 +27,9 @@
             return false;
         };
         // 创建所需要的DOM
-        var prepareDOM = function(dom) {
+        var prepareDOM = function (dom) {
             // 遍历每个放大镜div容器
-            dom.each(function() {
+            dom.each(function () {
                 // 克隆图片DOM
                 var img = $(this)
                     .find('img')
@@ -53,15 +53,15 @@
         };
 
         // 给放大镜small区域div绑定鼠标移动事件
-        var bindListener = function(dom) {
-            dom.each(function() {
+        var bindListener = function (dom) {
+            dom.each(function () {
                 $(this)
                     .find('.small')
-                    .mouseenter(function(e) {
+                    .mouseenter(function (e) {
                         // 鼠标进入
                         enterLogic($(this), e);
                     })
-                    .mousemove(function(e) {
+                    .mousemove(function (e) {
                         // 鼠标内部移动
                         var offset = $(this).offset();
                         var scrollTop =
@@ -76,7 +76,7 @@
 
                         mainLogic();
                     })
-                    .mouseleave(function(e) {
+                    .mouseleave(function (e) {
                         // 鼠标移除
                         $(this)
                             .siblings('.big')
@@ -90,7 +90,7 @@
         };
 
         // 鼠标进入容器的瞬间的逻辑
-        var enterLogic = function($this, event) {
+        var enterLogic = function ($this, event) {
             var offset = $this.offset();
             var scrollTop =
                 document.body.scrollTop || document.documentElement.scrollTop;
@@ -161,7 +161,7 @@
         };
 
         // 主逻辑
-        var mainLogic = function() {
+        var mainLogic = function () {
             // 没有触碰到边距
             if (notTouchBorder(leftDistance, topDistance)) {
                 magnifier.css({
@@ -231,7 +231,7 @@
         };
 
         // 根据配置初始化图片及容器样式
-        var setStyle = function(dom) {
+        var setStyle = function (dom) {
             dom.css({
                 width: config.width + 'px',
                 height: config.width + 'px'
@@ -272,7 +272,7 @@
         };
 
         // 重置变量
-        var resetVar = function() {
+        var resetVar = function () {
             magnifier = null;
             bigImageDOM = null;
             leftDistance = undefined;
@@ -281,7 +281,7 @@
 
         // 配置赋值
         config = $.extend({}, config, options);
-        el.each(function() {
+        el.each(function () {
             var $this = $(this);
             resetVar();
             prepareDOM($this);
@@ -290,7 +290,7 @@
         });
     };
 
-    $.fn.hiZoom = function(options) {
+    $.fn.hiZoom = function (options) {
         start($(this), options);
     };
 })(jQuery);

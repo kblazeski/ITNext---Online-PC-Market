@@ -1,0 +1,37 @@
+﻿@model ITNext___Online_PC_Market.ViewModels.ItemsTipViewModel
+
+@{
+    ViewBag.Title = "Измени продукт";
+}
+
+<h2>Измени продукт</h2>
+
+@using (Html.BeginForm("Edit", "Products"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.item.Name)
+        @Html.TextBoxFor(m => m.item.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.item.Price)
+        @Html.TextBoxFor(m => m.item.Price, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.item.Stock)
+        @Html.TextBoxFor(m => m.item.Stock, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.item.ImgURL)
+        @Html.TextBoxFor(m => m.item.ImgURL, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.item.Tip)
+        @Html.DropDownListFor(m => m.item.TipId, new SelectList(Model.categories, "Id", "Name"), new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.item.Desc)
+        @Html.TextAreaFor(m => m.item.Desc, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m => m.item.Id)
+    <button class="btn btn-primary" type="submit">Измени продукт</button>
+}

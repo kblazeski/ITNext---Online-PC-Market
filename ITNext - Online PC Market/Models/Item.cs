@@ -11,6 +11,7 @@ namespace ITNext___Online_PC_Market.Models
         public int Id { get; set; }
         [Required]
         [Display(Name = "Име на продукт")]
+        [DataType(DataType.MultilineText)]
         public string Name { get; set; }
         [Required]
         [Display(Name = "Опис на продукт")]
@@ -24,6 +25,7 @@ namespace ITNext___Online_PC_Market.Models
         public int Stock { get; set; }
         [Display(Name="Цена")]
         public int Price { get; set; }
+        [Display(Name = "Категорија на продукт")]
         public Tip Tip { get; set; }
         public int TipId { get; set; }
     }

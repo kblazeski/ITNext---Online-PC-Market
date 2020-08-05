@@ -1,0 +1,73 @@
+﻿@model ITNext___Online_PC_Market.Models.Item
+
+@{
+    ViewBag.Title = "Детали";
+}
+
+<h2>Детали за @Model.Name</h2>
+<div class="section padding_layout_1 product_detail">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-12 col-md-12">
+                        <div class="product_detail_feature_img hizoom hi2" style="height:400px;width:400px">
+                            <div class='hizoom hi2' style="height:400px;width:400px"> <img style="height:400px;width:400px" src="@Model.ImgURL" alt="#" /> </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-12 col-md-12 product_detail_side detail_style1">
+                        <div class="product-heading">
+                            <h2>@Model.Name</h2>
+                        </div>
+                        <div class="product-detail-side"><span class="new-price">Цена: @Model.Price ден.</span></div>
+                        <div class="detail-contant">
+                            <p>Вкупно во залиха: @Model.Stock</p>
+                            <form class="cart" method="post" action="it_cart.html">
+                                <div class="quantity">
+                                    <input step="1" min="1" max="50" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" type="number">
+                                </div>
+                                <button type="submit" class="btn sqaure_bt">Додај во кошничка</button>
+                            </form>
+                        </div>
+                        <div class="share-post">
+                            <a href="#" class="share-text">Share</a>
+                            <ul class="social_icons">
+                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="full">
+                            <div class="tab_bar_section">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#description">Опис</a> </li>
+                                    <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#reviews">Опции</a> </li>
+                                </ul>
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div id="description" class="tab-pane active">
+                                        <div class="product_desc">
+                                            @Html.Raw("<pre>" + Model.Desc + "</pre>")
+                                        </div>
+                                    </div>
+                                    <div id="reviews" class="tab-pane fade">
+                                        <button type="submit" class="btn sqaure_bt" onclick="@("window.location.href='" + @Url.Action("Edit", "Products",new { id = Model.Id }) + "'");">Измени</button>
+                                        <button type="submit" class="btn sqaure_bt">Избриши</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

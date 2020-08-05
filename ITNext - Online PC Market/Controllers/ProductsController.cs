@@ -26,6 +26,11 @@ namespace ITNext___Online_PC_Market.Controllers
             IEnumerable<Item> items = _context.items.ToList();
             return View(items);
         }
+        public ActionResult Details(int id)
+        {
+            var product = _context.items.SingleOrDefault(m => m.Id == id);
+            return View(product);
+        }
         public ActionResult Create()
         {
             ItemsTipViewModel model = new ItemsTipViewModel();
@@ -46,7 +51,31 @@ namespace ITNext___Online_PC_Market.Controllers
             item.ImgURL = viewModel.item.ImgURL;
             _context.items.Add(item);
             _context.SaveChanges();
-            return RedirectToAction("AllProducts");
+            return RedirectToAction("Index");
+        }
+        public ActionResult Edit(int id)
+        {
+            ItemsTipViewModel model = new ItemsTipViewModel();
+            model.categories = _context.categories.ToList();
+            var item = _context.items.SingleOrDefault(m => m.Id == id);
+            model.item = item;
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult Edit(ItemsTipViewModel model)
+        {
+            int id = model.item.Id;
+            var item = _context.items.SingleOrDefault(m => m.Id == id);
+            Tip tipNaProdukt = _context.categories.SingleOrDefault(m => m.Id == model.item.TipId);
+            item.Name = model.item.Name;
+            item.Price = model.item.Price;
+            item.Desc = model.item.Desc;
+            item.ImgURL = model.item.ImgURL;
+            item.Stock = model.item.Stock;
+            item.TipId = model.item.TipId;
+            item.Tip = tipNaProdukt;
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
