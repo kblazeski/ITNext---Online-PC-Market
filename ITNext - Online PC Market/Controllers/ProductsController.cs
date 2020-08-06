@@ -32,6 +32,12 @@ namespace ITNext___Online_PC_Market.Controllers
             return View(product);
         }
         [Authorize(Roles = "Administrator")]
+        public ActionResult AdminDetails(int? id)
+        {
+            var product = _context.items.SingleOrDefault(m => m.Id == id);
+            return View(product);
+        }
+        [Authorize(Roles = "Administrator")]
         public ActionResult Create()
         {
             ItemsTipViewModel model = new ItemsTipViewModel();

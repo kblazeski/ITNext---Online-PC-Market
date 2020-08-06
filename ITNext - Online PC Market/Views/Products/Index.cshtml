@@ -11,6 +11,10 @@
                 <div class="product_img"> <img class="img-responsive" src="@item.ImgURL" alt=""> </div>
                 <div class="product_detail_btm">
                     <div class="center">
+                        @if (User.IsInRole("Administrator"))
+                        {
+                        <h4>@Html.ActionLink(item.Name, "Details", "Products", new { id = item.Id }, null)</h4>
+                        }
                         <h4>@Html.ActionLink(item.Name,"Details","Products",new { id = item.Id },null)</h4>
                     </div>
                     <div class="starratin">
