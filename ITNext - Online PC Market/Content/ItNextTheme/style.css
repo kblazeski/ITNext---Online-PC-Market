@@ -290,6 +290,11 @@ a.btn.white_btn {
 .padding-bottom_1 {
 	padding-bottom: 10px !important;
 }
+.kutija {
+	float: left;
+	width: 100%;
+	margin-top: 50px;
+}
 
 .padding-bottom_2 {
 	padding-bottom: 20px !important;
@@ -730,7 +735,7 @@ hr.dottad_border {
 }
 
 .margin_bottom_30_all {
-	margin-bottom: 30px;
+	float: left;
 }
 
 .margin_bottom_50_all {

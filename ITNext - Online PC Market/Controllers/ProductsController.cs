@@ -29,12 +29,10 @@ namespace ITNext___Online_PC_Market.Controllers
         public ActionResult Details(int id)
         {
             var product = _context.items.SingleOrDefault(m => m.Id == id);
-            return View(product);
-        }
-        [Authorize(Roles = "Administrator")]
-        public ActionResult AdminDetails(int? id)
-        {
-            var product = _context.items.SingleOrDefault(m => m.Id == id);
+            if (User.IsInRole("Administrator"))
+            {
+                return View("AdminDetails",product);
+            }
             return View(product);
         }
         [Authorize(Roles = "Administrator")]
@@ -84,6 +82,14 @@ namespace ITNext___Online_PC_Market.Controllers
             item.Stock = model.item.Stock;
             item.TipId = model.item.TipId;
             item.Tip = tipNaProdukt;
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        [Authorize(Roles ="Administrator")]
+        public ActionResult Delete(int id)
+        {
+            var model = _context.items.SingleOrDefault(m => m.Id == id);
+            _context.items.Remove(model);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }

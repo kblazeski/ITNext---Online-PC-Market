@@ -28,6 +28,11 @@ namespace ITNext___Online_PC_Market
                       "~/Scripts/js/jquery.min.js",
                       "~/Scripts/js/menumaker.js",
                       "~/Scripts/js/wow.js",
+                      "~/Scripts/js/jplist.core.min.js",
+                      "~/Scripts/js/jplist.filter-dropdown-bundle.min.js",
+                      "~/Scripts/js/jplist.pagination-bundle.min.js",
+                      "~/Scripts/js/jplist.sort-bundle.min.js",
+                      "~/Scripts/js/jplist.textbox-filter.min.js",
                       "~/Scripts/js/jquery.themepunch.revolution.min.js",
                       "~/Scripts/js/jquery.themepunch.tools.min.js",
                       "~/Scripts/js/extensions/revolution.extension.actions.min.js",
@@ -53,6 +58,8 @@ namespace ITNext___Online_PC_Market
                       "~/Content/ItNextTheme/settings.css",
                       "~/Content/ItNextTheme/layers.css",
                       "~/Content/ItNextTheme/navigation.css",
+                      "~/Content/jplist.core.min.css",
+                      "~/Content/jplist.textbox-filter.min.css",
                       "~/Content/font-awesome.css",
                       "~/Content/font-awesome.min.css"));
         }

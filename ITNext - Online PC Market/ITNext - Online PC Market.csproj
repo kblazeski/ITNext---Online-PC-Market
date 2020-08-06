@@ -268,6 +268,8 @@
     <Content Include="Content\ItNextTheme\responsive.css" />
     <Content Include="Content\ItNextTheme\settings.css" />
     <Content Include="Content\ItNextTheme\style.css" />
+    <Content Include="Content\jplist.core.min.css" />
+    <Content Include="Content\jplist.textbox-filter.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -366,6 +368,11 @@
     <Content Include="Scripts\js\extensions\revolution.extension.video.min.js" />
     <Content Include="Scripts\js\hizoom.min.js" />
     <Content Include="Scripts\js\hizoom.js" />
+    <Content Include="Scripts\js\jplist.core.min.js" />
+    <Content Include="Scripts\js\jplist.filter-dropdown-bundle.min.js" />
+    <Content Include="Scripts\js\jplist.pagination-bundle.min.js" />
+    <Content Include="Scripts\js\jplist.sort-bundle.min.js" />
+    <Content Include="Scripts\js\jplist.textbox-filter.min.js" />
     <Content Include="Scripts\js\jquery.min.js" />
     <Content Include="Scripts\js\jquery.themepunch.revolution.min.js" />
     <Content Include="Scripts\js\jquery.themepunch.tools.min.js" />
