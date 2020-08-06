@@ -13,9 +13,12 @@
                     <div class="center">
                         @if (User.IsInRole("Administrator"))
                         {
+                        <h4>@Html.ActionLink(item.Name, "AdminDetails", "Products", new { id = item.Id }, null)</h4>
+                        }
+                        else
+                        {
                         <h4>@Html.ActionLink(item.Name, "Details", "Products", new { id = item.Id }, null)</h4>
                         }
-                        <h4>@Html.ActionLink(item.Name,"Details","Products",new { id = item.Id },null)</h4>
                     </div>
                     <div class="starratin">
                         <div class="center"> </div>
