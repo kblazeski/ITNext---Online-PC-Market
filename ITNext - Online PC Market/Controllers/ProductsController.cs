@@ -31,12 +31,14 @@ namespace ITNext___Online_PC_Market.Controllers
             var product = _context.items.SingleOrDefault(m => m.Id == id);
             return View(product);
         }
+        [Authorize(Roles = "Administrator")]
         public ActionResult Create()
         {
             ItemsTipViewModel model = new ItemsTipViewModel();
             model.categories = _context.categories.ToList();
             return View(model);
         }
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public ActionResult Create(ItemsTipViewModel viewModel)
         {
@@ -53,6 +55,7 @@ namespace ITNext___Online_PC_Market.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit(int id)
         {
             ItemsTipViewModel model = new ItemsTipViewModel();
@@ -61,6 +64,7 @@ namespace ITNext___Online_PC_Market.Controllers
             model.item = item;
             return View(model);
         }
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public ActionResult Edit(ItemsTipViewModel model)
         {
