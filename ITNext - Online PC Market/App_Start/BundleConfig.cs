@@ -25,6 +25,7 @@ namespace ITNext___Online_PC_Market
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
                       "~/Scripts/js/bootstrap.min.js",
                       "~/Scripts/js/custom.js",
+                      "~/Scripts/bootbox.js",
                       "~/Scripts/js/jquery.min.js",
                       "~/Scripts/js/menumaker.js",
                       "~/Scripts/js/wow.js",

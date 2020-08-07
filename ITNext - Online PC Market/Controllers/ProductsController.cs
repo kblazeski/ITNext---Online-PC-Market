@@ -24,7 +24,12 @@ namespace ITNext___Online_PC_Market.Controllers
         public ActionResult Index()
         {
             IEnumerable<Item> items = _context.items.ToList();
-            return View(items);
+            if (User.IsInRole("Administrator"))
+            {
+                return View("AdminIndex",items);
+            }
+            return View("Index", items);
+            
         }
         public ActionResult Details(int id)
         {

@@ -1,0 +1,143 @@
+﻿@model IEnumerable<ITNext___Online_PC_Market.Models.Item>
+
+@{
+    ViewBag.Title = "Продукти";
+}
+    <button type="submit" class="btn sqaure_bt" onclick="@("window.location.href='" + @Url.Action("Create", "Products") + "'");">Додај нов продукт</button>
+    <div id="demo">
+
+        <!-- panel -->
+        <div class="jplist-panel">
+            <!-- items per page dropdown -->
+
+            <div class="jplist-drop-down"
+                 data-control-type="items-per-page-drop-down"
+                 data-control-name="paging"
+                 data-control-action="paging">
+
+                <ul>
+                    <li><span data-number="4"> 4 по страна </span></li>
+                    <li><span data-number="8"> 8 по страна </span></li>
+                    <li><span data-number="12" data-default="true"> 12 по страна</span></li>
+                </ul>
+            </div>
+            <div class="jplist-drop-down"
+                 data-control-type="sort-drop-down"
+                 data-control-name="sort"
+                 data-control-action="sort"
+                 data-datetime-format="{month}/{day}/{year}">
+                <!-- {year}, {month}, {day}, {hour}, {min}, {sec} -->
+
+                <ul>
+                    <li><span data-path="default">Сортирај по</span></li>
+                    <li><span data-path=".ime" data-order="asc" data-type="text">Име A-Z</span></li>
+                    <li><span data-path=".ime" data-order="desc" data-type="text">Име Z-A</span></li>
+                    <li><span data-path=".new_price" data-order="asc" data-type="number" data-default="true">Цена растечки</span></li>
+                    <li><span data-path=".new_price" data-order="desc" data-type="number">Цена опаѓачки</span></li>
+                </ul>
+            </div>
+            <div class="jplist-drop-down"
+                 data-control-type="filter-drop-down"
+                 data-control-name="category-filter"
+                 data-control-action="filter">
+                <ul>
+                    <li><span data-path="default">Категорија</span></li>
+                    <li><span data-path=".1">Десктопи</span></li>
+                    <li><span data-path=".2">Лаптопи</span></li>
+                    <li><span data-path=".3">Таблети</span></li>
+                    <li><span data-path=".4">Смартфони</span></li>
+                    <li><span data-path=".5">Телевизори</span></li>
+                    <li><span data-path=".6">Камери</span></li>
+                    <li><span data-path=".7">Фотоапарати</span></li>
+                    <li><span data-path=".8">Дронови</span></li>
+                    <li><span data-path=".9">Монитори</span></li>
+                    <li><span data-path=".10">Печатачи</span></li>
+                    <li><span data-path=".11">Скенери</span></li>
+                    <li><span data-path=".12">Графички</span></li>
+                    <li><span data-path=".13">РАМ мемории</span></li>
+                    <li><span data-path=".14">Процесори</span></li>
+                    <li><span data-path=".15">Напојувања</span></li>
+                    <li><span data-path=".16">Звучни картички</span></li>
+                    <li><span data-path=".17">Вентилатори</span></li>
+                    <li><span data-path=".18">Матични плочи</span></li>
+                    <li><span data-path=".19">Хард Дискови</span></li>
+                    <li><span data-path=".20">SSD Дискови</span></li>
+                </ul>
+            </div>
+            <div class="text-filter-box">
+                <i class="fa fa-pencil jplist-icon"></i>
+
+                <div class="jplist-label">Филтрирај по име:</div>
+
+                <input data-path=".ime"
+                       type="text"
+                       value=""
+                       class="jplist-no-right-border"
+                       placeholder="Филтрирај по име"
+                       data-control-type="textbox"
+                       data-control-name="title-filter"
+                       data-control-action="filter" />
+
+                <!-- clear textbox button -->
+                <i class="fa fa-times-circle jplist-clear" data-type="clear"></i>
+            </div>
+            <div class="jplist-pagination"
+                 data-control-type="pagination"
+                 data-control-name="paging"
+                 data-control-action="paging">
+            </div>
+            <div class="jplist-label"
+                 data-type="Страна {current} од {pages}"
+                 data-control-type="pagination-info"
+                 data-control-name="paging"
+                 data-control-action="paging">
+            </div>
+        </div>
+
+        <!-- HTML data -->
+        <div class="list kutija">
+
+            @foreach (ITNext___Online_PC_Market.Models.Item item in Model)
+            {
+                <div class="list-item">
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
+                        <div class="product_list">
+                            <div class="product_img"> <img class="img-responsive" src="@item.ImgURL" alt=""> </div>
+                            <div class="product_detail_btm">
+                                <div class="center">
+                                    <h4 class="ime">@Html.ActionLink(item.Name, "Details", "Products", new { id = item.Id }, null)</h4>
+                                </div>
+                                <span hidden class="@item.TipId"></span>
+                                <div class="starratin">
+                                    <div class="center"> </div>
+                                </div>
+                                <div class="product_price">
+                                    <p><span class="new_price">@item.Price ден. </span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+        <!-- no results found -->
+        <div class="jplist-no-results">
+            <p>No results found</p>
+        </div>
+
+    </div>
+@section scripts
+{
+    <script>
+        $('document').ready(function(){
+           $('#demo').jplist({
+              itemsBox: '.list'
+              ,itemPath: '.list-item'
+              ,panelPath: '.jplist-panel'
+           });
+
+        });
+    </script>
+}
