@@ -11,18 +11,22 @@
     <div class="form-group">
         @Html.LabelFor(m => m.item.Name)
         @Html.TextBoxFor(m => m.item.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.item.Name, "", new { @style = "color:red" })
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.item.Price)
         @Html.TextBoxFor(m => m.item.Price, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.item.Price, "", new { @style = "color:red" })
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.item.Stock)
         @Html.TextBoxFor(m => m.item.Stock, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.item.Stock, "", new { @style = "color:red" })
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.item.ImgURL)
         @Html.TextBoxFor(m => m.item.ImgURL, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.item.ImgURL, "", new { @style = "color:red" })
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.item.Tip)
@@ -31,6 +35,7 @@
     <div class="form-group">
         @Html.LabelFor(m => m.item.Desc)
         @Html.TextAreaFor(m => m.item.Desc, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.item.Desc, "", new { @style = "color:red" })
     </div>
     @Html.HiddenFor(m => m.item.Id)
     <button class="btn btn-primary" type="submit">Измени продукт</button>

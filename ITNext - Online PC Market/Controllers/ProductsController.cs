@@ -51,6 +51,11 @@ namespace ITNext___Online_PC_Market.Controllers
         [HttpPost]
         public ActionResult Create(ItemsTipViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                viewModel.categories = _context.categories.ToList();
+                return View("Create",viewModel);
+            }
             Tip tipNaProdukt = _context.categories.SingleOrDefault(m => m.Id == viewModel.item.TipId);
             Item item = new Item();
             item.Name = viewModel.item.Name;
@@ -77,6 +82,11 @@ namespace ITNext___Online_PC_Market.Controllers
         [HttpPost]
         public ActionResult Edit(ItemsTipViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                model.categories = _context.categories.ToList();
+                return View("Edit",model);
+            }
             int id = model.item.Id;
             var item = _context.items.SingleOrDefault(m => m.Id == id);
             Tip tipNaProdukt = _context.categories.SingleOrDefault(m => m.Id == model.item.TipId);

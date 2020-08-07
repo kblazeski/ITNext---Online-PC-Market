@@ -226,6 +226,14 @@
     <Compile Include="Migrations\202008061339167_AdminDetailsViewFIX.Designer.cs">
       <DependentUpon>202008061339167_AdminDetailsViewFIX.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008071309569_AddedErrorMessagesInItemModel.cs" />
+    <Compile Include="Migrations\202008071309569_AddedErrorMessagesInItemModel.Designer.cs">
+      <DependentUpon>202008071309569_AddedErrorMessagesInItemModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008071314366_FixedIssueWithItem.cs" />
+    <Compile Include="Migrations\202008071314366_FixedIssueWithItem.Designer.cs">
+      <DependentUpon>202008071314366_FixedIssueWithItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -482,6 +490,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008061339167_AdminDetailsViewFIX.resx">
       <DependentUpon>202008061339167_AdminDetailsViewFIX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008071309569_AddedErrorMessagesInItemModel.resx">
+      <DependentUpon>202008071309569_AddedErrorMessagesInItemModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008071314366_FixedIssueWithItem.resx">
+      <DependentUpon>202008071314366_FixedIssueWithItem.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
