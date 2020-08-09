@@ -2,9 +2,9 @@
 
 @{
     ViewBag.Title = "Index";
-    if (Session["cart"] == null)
+    if (System.Web.HttpContext.Current.Session["cart"] == null)
     {
-        Session["cart"] = new List<ITNext___Online_PC_Market.Models.CartItem>();
+        System.Web.HttpContext.Current.Session["cart"] = new List<ITNext___Online_PC_Market.Models.CartItem>();
     }
     double total = 0;
     foreach (ITNext___Online_PC_Market.Models.CartItem item in (List<ITNext___Online_PC_Market.Models.CartItem>)Session["cart"])
@@ -29,7 +29,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (ITNext___Online_PC_Market.Models.CartItem item in (List<ITNext___Online_PC_Market.Models.CartItem>)Session["cart"])
+                        @foreach (ITNext___Online_PC_Market.Models.CartItem item in (List<ITNext___Online_PC_Market.Models.CartItem>)System.Web.HttpContext.Current.Session["cart"])
                         {
                             <tr>
                                 <td class="col-sm-8 col-md-6">
@@ -104,7 +104,7 @@
                         </tr>
                         <tr>
                             <td><button type="button" class="button" onclick="redirectOnClick()">Continue Shopping</button></td>
-                            <td><button class="button" onclick="checkout()">Checkout</button></td>
+                            <td><button class="button">Checkout</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -112,46 +112,9 @@
         </div>
     </div>
 </div>
-
-<script>
-    function checkout() {
-        @{
-            Session["cart"] = null;
-        }
-        redirectOnClick();
-    }
-</script>
-
 <script>
     function redirectOnClick() {
         document.location = 'Products/Index';
     }
 </script>
 
-<!--<script>
-$(document).ready(function () {
-    $('#myRow a').click(function (e) {
-        e.preventDefault();
-
-        var id = $(this).attr("Id");
-
-        var MSG = confirm("Дали сте сигурни дека сакате да го тргнете овој производ од вашата кошничка?");
-
-        if (MSG) {
-
-            $.ajax({
-                type: "POST",
-                url: '@Url.Action("DeleteCartItem","ShoppingCart")',
-                data: { id: id },
-                success: function () {
-                    setTimeout(function () { location.reload(); }, 1000);
-                },
-                error: function () {
-                    alert("Error while deleting data");
-                }
-            });
-        }
-    })
-});
-</script>
-    -->

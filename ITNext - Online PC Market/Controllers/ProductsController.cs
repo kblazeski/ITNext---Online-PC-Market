@@ -5,9 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.SessionState;
 
 namespace ITNext___Online_PC_Market.Controllers
 {
+    [SessionState(SessionStateBehavior.Required)]
     public class ProductsController : Controller
     {
         // GET: Products

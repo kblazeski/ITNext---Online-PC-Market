@@ -1,3 +1,4 @@
+using ITNext___Online_PC_Market.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,10 @@ namespace ITNext___Online_PC_Market
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+        protected void Session_Start(object sender, EventArgs e)
+        {
+            System.Web.HttpContext.Current.Session["cart"] = new List<CartItem>();
+        }
+
     }
 }
