@@ -31,7 +31,7 @@ namespace ITNext___Online_PC_Market.Controllers
             return View("Index", items);
             
         }
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
             var product = _context.items.SingleOrDefault(m => m.Id == id);
             if (User.IsInRole("Administrator"))
