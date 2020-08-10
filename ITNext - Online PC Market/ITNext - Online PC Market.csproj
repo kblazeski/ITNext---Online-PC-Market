@@ -247,6 +247,10 @@
     <Compile Include="Migrations\202008092216422_FixedShoppingCartSession.Designer.cs">
       <DependentUpon>202008092216422_FixedShoppingCartSession.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008101224526_AddedRemoveCartItemWITHOUTAJAX.cs" />
+    <Compile Include="Migrations\202008101224526_AddedRemoveCartItemWITHOUTAJAX.Designer.cs">
+      <DependentUpon>202008101224526_AddedRemoveCartItemWITHOUTAJAX.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CartItem.cs" />
@@ -520,6 +524,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008092216422_FixedShoppingCartSession.resx">
       <DependentUpon>202008092216422_FixedShoppingCartSession.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008101224526_AddedRemoveCartItemWITHOUTAJAX.resx">
+      <DependentUpon>202008101224526_AddedRemoveCartItemWITHOUTAJAX.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

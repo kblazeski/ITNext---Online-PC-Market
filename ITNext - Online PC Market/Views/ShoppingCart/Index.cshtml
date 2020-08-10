@@ -31,7 +31,7 @@
                     <tbody>
                         @foreach (ITNext___Online_PC_Market.Models.CartItem item in (List<ITNext___Online_PC_Market.Models.CartItem>)System.Web.HttpContext.Current.Session["cart"])
                         {
-                            <tr>
+                            <tr id="row-@item.Product.Id">
                                 <td class="col-sm-8 col-md-6">
                                     <div class="media">
                                         <a class="thumbnail pull-left" href="#"> <img class="media-object" src=@item.Product.ImgURL alt="#" style="max-height: 100px; max-width: 100px;"></a>
@@ -53,8 +53,8 @@
                                 </td>
                                 <td class="col-sm-1 col-md-1 text-center"><p class="price_table">@item.Product.Price</p></td>
                                 <td class="col-sm-1 col-md-1 text-center"><p class="price_table">@(item.Product.Price*item.Quantity)</p></td>
-                                <td class="col-sm-1 col-md-1"><button type="button" class="bt_main"><i class="fa fa-trash"></i> Remove</button></td>
-
+                                <td class="col-sm-1 col-md-1">@Html.ActionLink("Remove", "DeleteCartItem", "ShoppingCart", new { id = item.Product.Id }, new { @class = "bt_main", @type = "button" })<i class="fa fa-trash"></i></td>
+                                
                             </tr>
                         }
                     </tbody>
@@ -78,7 +78,7 @@
                         </tr>
                         <tr>
                             <td><h4>Subtotal</h4></td>
-                            <td class="text-right"><h4>@ViewBag.Total</h4></td>
+                            <td class="text-right" id="subtotal"><h4>@ViewBag.Total</h4></td>
                         </tr>
                         <tr>
                             <td><h5>Estimated shipping</h5></td>
@@ -95,7 +95,7 @@
                             <td><h3>Total</h3></td>
                             @if (ViewBag.Total > 0)
                             {
-                                <td class="text-right"><h4>@(ViewBag.Total+500)</h4></td>
+                                <td class="text-right" id="total"><h4>@(ViewBag.Total+500)</h4></td>
                             }
                             else
                             {
@@ -117,4 +117,24 @@
         document.location = 'Products/Index';
     }
 </script>
-
+<!--<script type="text/javascript">
+    $(function () {
+        $("#removeLink").click(function () {
+            var id = $(this).attr("data-id");
+            if (id != '') {
+                $.ajax({
+                    type: "POST",
+                    url: 'Url.Action("DeleteCartItem","ShoppingCart")',
+                    data: JSON.stringify({ id: id }),
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function () {
+                        $("row-" + data.DeleteId).fadeOut('slow');
+                        $("subtotal").text = data.Subtotal.toString();
+                        $("total").text = data.total.toString();
+                    }
+                });
+            }
+        });
+    });
+</script>-->

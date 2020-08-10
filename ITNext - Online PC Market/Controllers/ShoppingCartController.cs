@@ -11,7 +11,7 @@ namespace ITNext___Online_PC_Market.Controllers
     [SessionState(SessionStateBehavior.Required)]
     public class ShoppingCartController : Controller
     {
-        
+
         public ApplicationDbContext _context;
         public ShoppingCartController()
         {
@@ -23,7 +23,7 @@ namespace ITNext___Online_PC_Market.Controllers
             return View((List<CartItem>)System.Web.HttpContext.Current.Session["cart"]);
         }
         [HttpPost]
-        public ActionResult AddToCart(int id,int quantity)
+        public ActionResult AddToCart(int id, int quantity)
         {
             if (System.Web.HttpContext.Current.Session["cart"] == null)
             {
@@ -43,20 +43,22 @@ namespace ITNext___Online_PC_Market.Controllers
             }
             return RedirectToAction("Index", "Products");
         }
-        [HttpPost]
         public ActionResult DeleteCartItem(int id)
         {
             List<CartItem> list = (List<CartItem>)System.Web.HttpContext.Current.Session["cart"];
-            foreach(CartItem item in list)
+            var product=new CartItem();
+            foreach (CartItem item in list)
             {
                 if (item.Product.Id.Equals(id))
                 {
-                    list.Remove(item);
+                    product = item;
                     break;
                 }
             }
+            list.Remove(product);
             System.Web.HttpContext.Current.Session["cart"] = list;
             return RedirectToAction("Index", "ShoppingCart");
+
         }
     }
 }
