@@ -24,10 +24,13 @@
                             <p>Вкупно во залиха: @Model.Stock</p>
                             @using (Html.BeginForm("AddToCart", "ShoppingCart", new { id = Model.Id }, FormMethod.Post))
                             {
-                                <div class="quantity">
-                                    <input step="1" min="1" max="50" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" type="number">
-                                </div>
-                                <button type="submit" class="btn sqaure_bt">Додај во кошничка</button>
+                                if (Model.Stock > 0)
+                                {
+                                    <div class="quantity">
+                                        <input step="1" min="1" max="@Model.Stock" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" type="number">
+                                    </div>
+                                    <button type="submit" class="btn sqaure_bt">Додај во кошничка</button>
+                                }
                             }
                         </div>
                         <div class="share-post">

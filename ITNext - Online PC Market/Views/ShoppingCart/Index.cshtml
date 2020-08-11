@@ -54,7 +54,7 @@
                                 <td class="col-sm-1 col-md-1 text-center"><p class="price_table">@item.Product.Price</p></td>
                                 <td class="col-sm-1 col-md-1 text-center"><p class="price_table">@(item.Product.Price*item.Quantity)</p></td>
                                 <td class="col-sm-1 col-md-1">@Html.ActionLink("Remove", "DeleteCartItem", "ShoppingCart", new { id = item.Product.Id }, new { @class = "bt_main", @type = "button" })<i class="fa fa-trash"></i></td>
-                                
+
                             </tr>
                         }
                     </tbody>
@@ -117,24 +117,4 @@
         document.location = 'Products/Index';
     }
 </script>
-<!--<script type="text/javascript">
-    $(function () {
-        $("#removeLink").click(function () {
-            var id = $(this).attr("data-id");
-            if (id != '') {
-                $.ajax({
-                    type: "POST",
-                    url: 'Url.Action("DeleteCartItem","ShoppingCart")',
-                    data: JSON.stringify({ id: id }),
-                    dataType: "json",
-                    contentType: "application/json; charset=utf-8",
-                    success: function () {
-                        $("row-" + data.DeleteId).fadeOut('slow');
-                        $("subtotal").text = data.Subtotal.toString();
-                        $("total").text = data.total.toString();
-                    }
-                });
-            }
-        });
-    });
-</script>-->
+
