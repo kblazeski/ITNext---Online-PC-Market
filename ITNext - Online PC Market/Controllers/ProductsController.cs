@@ -12,7 +12,7 @@ namespace ITNext___Online_PC_Market.Controllers
     [SessionState(SessionStateBehavior.Required)]
     public class ProductsController : Controller
     {
-        // GET: Products
+        
         public ApplicationDbContext _context;
         public ProductsController()
         {
@@ -23,6 +23,7 @@ namespace ITNext___Online_PC_Market.Controllers
             _context.Dispose();
             base.Dispose(disposing);
         }
+        // GET: Products
         public ActionResult Index()
         {
             IEnumerable<Item> items = _context.items.ToList();
