@@ -89,7 +89,6 @@
                                                 @Html.ActionLink("Листа на продукти", "Index", "Products")
                                             </li>
                                             <li><a href=@Url.Action("Index","ShoppingCart",null)>Кошничка</a></li>
-                                            <li><a href="it_checkout.html">Купи</a></li>
                                         </ul>
                                     </li>
                                     <li>
@@ -99,7 +98,7 @@
                             </div>
                             <div class="search_icon">
                                 <ul>
-                                    <li><a href="#" data-toggle="modal" data-target="#search_bar"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                                    <li><a href="@Url.Action("Index","ShoppingCart",null)"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
                         </div>

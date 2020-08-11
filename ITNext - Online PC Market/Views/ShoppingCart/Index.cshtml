@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ITNext___Online_PC_Market.Models.CartItem>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Кошничка";
     if (System.Web.HttpContext.Current.Session["cart"] == null)
     {
         System.Web.HttpContext.Current.Session["cart"] = new List<ITNext___Online_PC_Market.Models.CartItem>();
@@ -14,17 +14,16 @@
     ViewBag.Total = total;
 
 }
-<div class="container">
     <div class="row">
         <div class="col-sm-12 col-md-12">
             <div class="product-table">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Product</th>
-                            <th>Quantity</th>
-                            <th class="text-center">Price</th>
-                            <th class="text-center">Total</th>
+                            <th>Продукт</th>
+                            <th>Количина</th>
+                            <th class="text-center">Цена</th>
+                            <th class="text-center">Вкупно</th>
                             <th> </th>
                         </tr>
                     </thead>
@@ -34,26 +33,26 @@
                             <tr id="row-@item.Product.Id">
                                 <td class="col-sm-8 col-md-6">
                                     <div class="media">
-                                        <a class="thumbnail pull-left" href="#"> <img class="media-object" src=@item.Product.ImgURL alt="#" style="max-height: 100px; max-width: 100px;"></a>
+                                        <a class="thumbnail pull-left" href="/Products/Details/@item.Product.Id"> <img class="media-object" src=@item.Product.ImgURL alt="#" style="max-height: 100px; max-width: 100px;"></a>
                                         <div class="media-body">
-                                            <h4 class="media-heading"><a href="#">@item.Product.Name</a></h4>
+                                            <h4 class="media-heading"><a href="/Products/Details/@item.Product.Id">@item.Product.Name</a></h4>
                                             @if (item.Product.Stock > 0)
                                             {
-                                                <span>Status: </span><span class="text-success">In Stock</span>
+                                                <span>Status: </span><span class="text-success">Во залиха</span>
                                             }
                                             else
                                             {
-                                                <span>Status: </span><span class="text-success">Out of Stock</span>
+                                                <span>Status: </span><span class="text-danger">Не е во залиха</span>
                                             }
                                         </div>
                                     </div>
                                 </td>
                                 <td class="col-sm-1 col-md-1" style="text-align: center">
-                                    <input class="form-control" value=@item.Quantity type="email">
+                                    <p class="price_table">@item.Quantity</p>
                                 </td>
-                                <td class="col-sm-1 col-md-1 text-center"><p class="price_table">@item.Product.Price</p></td>
-                                <td class="col-sm-1 col-md-1 text-center"><p class="price_table">@(item.Product.Price*item.Quantity)</p></td>
-                                <td class="col-sm-1 col-md-1">@Html.ActionLink("Remove", "DeleteCartItem", "ShoppingCart", new { id = item.Product.Id }, new { @class = "bt_main", @type = "button" })<i class="fa fa-trash"></i></td>
+                                <td class="col-sm-1 col-md-1 text-center"><p class="price_table">@item.Product.Price ден.</p></td>
+                                <td class="col-sm-1 col-md-1 text-center"><p class="price_table">@(item.Product.Price*item.Quantity) ден.</p></td>
+                                <td class="col-sm-1 col-md-1"><button type="submit" class="bt_main" onclick="@("window.location.href='" + @Url.Action("DeleteCartItem", "ShoppingCart",new { id = item.Product.Id }) + "'");"><i class="fa fa-trash"></i>Избриши</button></td>
 
                             </tr>
                         }
@@ -63,7 +62,6 @@
                     <tbody>
                         <tr class="cart-form">
                             <td class="actions">
-                                <input class="button" name="update_cart" value="Update cart" disabled="" type="submit">
                             </td>
                         </tr>
                     </tbody>
@@ -73,48 +71,47 @@
                 <table>
                     <tbody>
                         <tr class="head-table">
-                            <td><h5>Cart Totals</h5></td>
+                            <td><h5>Вкупно во кошничка</h5></td>
                             <td class="text-right"></td>
                         </tr>
                         <tr>
-                            <td><h4>Subtotal</h4></td>
-                            <td class="text-right" id="subtotal"><h4>@ViewBag.Total</h4></td>
+                            <td><h4>Продукти</h4></td>
+                            <td class="text-right"><h4>@ViewBag.Total ден.</h4></td>
                         </tr>
                         <tr>
-                            <td><h5>Estimated shipping</h5></td>
+                            <td><h5>Испорака</h5></td>
                             @if (ViewBag.Total > 0)
                             {
-                                <td class="text-right"><h4>500</h4></td>
+                                <td class="text-right"><h4>500 ден.</h4></td>
                             }
                             else
                             {
-                                <td class="text-right"><h4>0</h4></td>
+                                <td class="text-right"><h4>0 ден.</h4></td>
                             }
                         </tr>
                         <tr>
-                            <td><h3>Total</h3></td>
+                            <td><h3>Вкупно</h3></td>
                             @if (ViewBag.Total > 0)
                             {
-                                <td class="text-right" id="total"><h4>@(ViewBag.Total+500)</h4></td>
+                                <td class="text-right"><h4>@(ViewBag.Total+500) ден.</h4></td>
                             }
                             else
                             {
-                                <td class="text-right"><h4>0</h4></td>
+                                <td class="text-right"><h4>0 ден.</h4></td>
                             }
                         </tr>
                         <tr>
-                            <td><button type="button" class="button" onclick="redirectOnClick()">Continue Shopping</button></td>
-                            <td><button class="button">Checkout</button></td>
+                            <td><button type="button" class="bt_main" onclick="redirectOnClick()">Продукти</button></td>
+                            <td><button class="bt_main">Купи</button></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-</div>
 <script>
     function redirectOnClick() {
-        document.location = 'Products/Index';
+        document.location = '@Url.Action("Index","Products")';
     }
 </script>
 
